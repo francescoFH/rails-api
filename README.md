@@ -1,24 +1,16 @@
-# README
+### RAILS-API
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+REST API application followed by https://jsonapi.org standard for API communication.
 
-Things you may want to cover:
+## Features
 
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+1. Listing recent Articles
+2. Previewing the article's details
+3. Logging in using login/password flow
+4. Registering user using login/password flow
+5. OAUTH integration with Github
+4. Managing own articles (Create/Update/Destroy)
+5. Creating comments to articles
+6. Token-based authorization
+7. Access management check.
+8. TDD implementation.
