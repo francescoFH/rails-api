@@ -7,4 +7,18 @@ class ApplicationController < ActionController::API
   )
   rescue_from ::StandardError, with: lambda { |e| handle_error(e) }
 
+
+  rescue_from UserAuthenticator::AuthenticationError, with: :authenticator_error
+
+  private
+
+  def authenticator_error
+    error = {
+      status: "401",
+      source: { "pointer": "/code" },
+      title: "Authentication code is invalid",
+      detail: "You must provide valid code in order to exchange it for token."
+    }
+    render json: { "errors": [ error ] }, status: 401
+  end
 end
