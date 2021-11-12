@@ -50,7 +50,6 @@ RSpec.describe ArticlesController do
 
   describe '#show' do
     let(:article) { create :article }
-
     subject { get "/articles/#{article.id}" }
 
     before { subject }
@@ -69,6 +68,23 @@ RSpec.describe ArticlesController do
           slug: article.slug
         )
       end
+    end
+  end
+
+  describe '#create', type: :controller do
+    subject { post :create }
+
+    context 'when no code provided' do
+      it_behaves_like 'forbidden_requests'
+    end
+
+    context 'when invalid code provided' do
+      before { request.headers['authorization'] = 'Invalid token' }
+      it_behaves_like 'forbidden_requests'
+    end
+
+    context 'when invalid parameters provided' do
+
     end
   end
 end
